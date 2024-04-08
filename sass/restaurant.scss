@@ -1,0 +1,159 @@
+/**** palette du goût ****/
+.back {
+  position: absolute;
+  margin: 21px;
+  font-size: 21px;
+  color: black;
+}
+
+.image {
+  height: 245px;
+}
+
+.image img {
+  width: 100%;
+  border-radius: 0px;
+  height: 275px;
+}
+
+.menu {
+  padding: 30px 10px;
+  background-color: #f6f6f6;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.titre-menu {
+  display: flex;
+  position: relative;
+}
+.titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+}
+
+.plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-plats {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px #0000001a;
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: white;
+  height: 72px;
+  overflow: hidden;
+}
+.button-plats:hover > .check {
+  margin-right: 0;
+}
+@keyframes checkrotate {
+  0% {
+    transform: rotate(-300deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.button-plats:hover i {
+  animation: checkrotate 0.5s ease;
+}
+
+.text-plats {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.text-plats > h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.text-plats > p {
+  margin-top: -9px;
+}
+
+.prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+}
+
+.heart-palette {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  top: 21px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pos-heart-palette {
+  position: absolute;
+}
+
+/* ... Existing styles ... */
+
+.button-plats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entry:nth-child(1) {
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+}
+
+.entry:nth-child(2) {
+  animation: fadeInUp 0.5s ease 1s forwards;
+}
+
+.entry:nth-child(3) {
+  animation: fadeInUp 0.5s ease 1.5s forwards;
+}
+
+.entry:nth-child(4) {
+  animation: fadeInUp 0.5s ease 1.75s forwards;
+}
+
+.main:nth-child(1) {
+  animation: fadeInUp 0.5s ease 2s forwards;
+}
+
+.main:nth-child(2) {
+  animation: fadeInUp 0.5s ease 2.5s forwards;
+}
+
+.main:nth-child(3) {
+  animation: fadeInUp 0.5s ease 3s forwards;
+}
+
+.dessert:nth-child(1) {
+  animation: fadeInUp 0.5s ease 3.5s forwards;
+}
+
+.dessert:nth-child(2) {
+  animation: fadeInUp 0.5s ease 4s forwards;
+}
+
+.dessert:nth-child(3) {
+  animation: fadeInUp 0.5s ease 4.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

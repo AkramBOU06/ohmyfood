@@ -1,0 +1,59 @@
+@keyframes bars {
+  0% {
+    opacity: 1;
+  }
+}
+
+@keyframes bar {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+
+  0% {
+    opacity: 1;
+
+
+  }
+
+
+  100% {
+
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  /*
+  0% {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    width: 1px !important;
+    height: 1px !important;
+    display: none;
+  } */
+  from {
+    opacity: 1;
+    display: block;
+}
+to {
+    opacity: 0;
+    z-index: -100;
+    display: none;
+    height: 0;
+    width: 0;
+    display: none;
+    clip-path: circle(0);
+}
+
+}
