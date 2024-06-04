@@ -1,9 +1,14 @@
+@import "./variables.scss";
+
+
 * {
   font-family: "Roboto", sans-serif;
 }
 
 body {
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 a {
@@ -12,13 +17,13 @@ a {
   color: white;
 }
 
+input::placeholder {
+  color: grey;
+}
+
 h3.soustitre {
   border-bottom: 3px solid #99e2d0;
   width: 3rem;
-}
-
-input::placeholder {
-  color: grey;
 }
 
 .check {

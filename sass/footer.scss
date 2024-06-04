@@ -1,22 +1,57 @@
-/**** footer ****/
+@import "./variables.scss";
 
 footer {
-  height: 186px;
   background-color: #323232;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
+  width: 100%;
+}
 
-  h2 {
-    font-size: 18px;
-    color: white;
-    font-family: "Shrikhand", serif;
-    font-weight: lighter;
-  }
+footer h2 {
+  font-size: 18px;
+  color: white;
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+  margin-bottom: 20px;
 }
 
 .footer-liens {
   display: flex;
-  flex-direction: column;
-  gap: 100px;
+  flex-direction: column; /* Alignement vertical par défaut */
+
+  gap: 10px; /* Ajuster l'espace entre les éléments */
+  width: 100%;
+  color: white;
+
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
+  footer h2 {
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .footer-liens {
+    flex-direction: row; /* Alignement horizontal pour les écrans plus larges */
+    justify-content: flex-end; /* Alignement à droite */
+    gap: 20px;
+    max-width: 1200px;
+
+    a {
+      margin: 0 10px;
+    }
+
+    h2 {
+      margin-left: 10px;
+      margin-right: 20px;
+    }
+  }
 }

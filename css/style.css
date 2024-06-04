@@ -5,6 +5,8 @@
 
 body {
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 a {
@@ -13,13 +15,13 @@ a {
   color: white;
 }
 
+input::placeholder {
+  color: grey;
+}
+
 h3.soustitre {
   border-bottom: 3px solid #99e2d0;
   width: 3rem;
-}
-
-input::placeholder {
-  color: grey;
 }
 
 .check {
@@ -61,21 +63,6 @@ input::placeholder {
   }
 }
 @keyframes fadeIn {
-  /*
-  0% {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-    display: block;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
-    width: 1px !important;
-    height: 1px !important;
-    display: none;
-  } */
   from {
     opacity: 1;
     display: block;
@@ -86,11 +73,19 @@ input::placeholder {
     display: none;
     height: 0;
     width: 0;
-    display: none;
     clip-path: circle(0);
   }
 }
-/***** header *****/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 header {
   width: 100%;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1490196078);
@@ -110,236 +105,55 @@ header h1 {
   height: auto;
 }
 
-/**** nav ****/
-nav {
-  height: 440px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.flitres {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-nav button {
-  width: 100%;
-  max-width: 350px; /* Set max-width */
-  border-radius: 20px;
-  height: 73px;
-  border: none;
-  background-color: #f6f6f6;
-  margin: 15px;
-  cursor: pointer;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1490196078);
-}
-
-.flitres button i.fa-store {
-  color: #9356dc;
-}
-
-/* Autres styles de survol que vous avez déjà définis */
-nav button:hover {
-  transform: scale(1.05);
-  box-shadow: 5px 4px 5px 2px rgba(107, 107, 107, 0.98);
-}
-
-nav button i {
-  margin: auto;
-}
-
-.text-button {
-  padding-left: 15px;
-  font-size: 16px;
-  font-weight: bolder;
-}
-
-.numero {
-  background: #9356dc;
-  color: white;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  margin-left: -18px;
-  margin-bottom: -18px;
-  align-items: center;
-}
-
-/* Media Queries pour les écrans plus larges */
-@media (min-width: 768px) {
-  header {
-    flex-direction: row;
-  }
-  .flitres {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-  }
-}
-/**** footer ****/
 footer {
-  height: 186px;
   background-color: #323232;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
+  width: 100%;
 }
+
 footer h2 {
   font-size: 18px;
   color: white;
   font-family: "Shrikhand", serif;
   font-weight: lighter;
+  margin-bottom: 20px;
 }
 
 .footer-liens {
   display: flex;
-  flex-direction: column;
-  gap: 100px;
-}
-
-/**** body ****/
-main {
-  display: flex;
-  flex-direction: column;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Alignement vertical par défaut */
+  gap: 10px; /* Ajuster l'espace entre les éléments */
   width: 100%;
-  align-items: center;
-}
-
-.localisation {
-  background-color: rgb(239, 239, 239);
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.localisation i {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-input {
-  width: 125px;
-  font-size: 15px;
-  background-color: transparent;
-  border: none;
-  margin-left: 10px;
-  font-weight: bolder;
-}
-
-.texte-intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: #f6f6f6;
-  padding: 40px;
-  width: 100%;
-  box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur totale */
-}
-
-.button-intro {
-  border-radius: 28px;
   color: white;
-  font-size: 16px;
-  padding: 16px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
-  justify-content: center;
-  display: flex;
-  width: 206px;
-  margin: 20px auto;
+}
+.footer-liens a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.button-intro:hover {
-  transform: scale(1.05);
-  opacity: 0.6;
-  box-shadow: 5px 4px 5px 2px rgba(107, 107, 107, 0.98);
+@media (min-width: 768px) {
+  footer h2 {
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+  .footer-liens {
+    flex-direction: row; /* Alignement horizontal pour les écrans plus larges */
+    justify-content: flex-end; /* Alignement à droite */
+    gap: 20px;
+    max-width: 1200px;
+  }
+  .footer-liens a {
+    margin: 0 10px;
+  }
+  .footer-liens h2 {
+    margin-left: 10px;
+    margin-right: 20px;
+  }
 }
-
-.margin-bottom {
-  margin-bottom: 0px;
-}
-
-/**** nav ****/
-nav {
-  padding: 30px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.flitres {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-nav button {
-  width: 100%;
-  max-width: 350px; /* Set max-width */
-  border-radius: 20px;
-  height: 73px;
-  border: none;
-  background-color: #f6f6f6;
-  margin: 10px 0;
-  cursor: pointer;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1490196078);
-}
-
-.flitres button i.fa-store {
-  color: #9356dc;
-}
-
-/* Autres styles de survol que vous avez déjà définis */
-nav button:hover {
-  transform: scale(1.05);
-  box-shadow: 5px 4px 5px 2px rgba(107, 107, 107, 0.98);
-}
-
-nav button i {
-  margin: auto;
-}
-
-.text-button {
-  padding-left: 15px;
-  font-size: 16px;
-  font-weight: bolder;
-}
-
-.numero {
-  background: #9356dc;
-  color: white;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  margin-left: -18px;
-  margin-bottom: -18px;
-  align-items: center;
-}
-
-/**** restaurants ****/
 .restaurants {
   background-color: #f6f6f6;
   padding: 20px;
@@ -347,48 +161,47 @@ nav button i {
   flex-direction: column;
   align-items: center;
 }
+.restaurants h2 {
+  margin-bottom: 20px; /* Adjust spacing */
+}
 
 .cards-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
+  flex-direction: column;
+  align-items: center; /* Center align items */
+  gap: 20px; /* Add gap between cards */
   width: 100%;
-  gap: 20px; /* Ajout de l'espacement entre les cards */
 }
 
 .cards {
-  flex: 0 1 calc(50% - 20px); /* Ajustement pour prendre en compte l'espacement */
+  width: 90%; /* Adjust width for mobile view */
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
-  margin-bottom: 20px;
   position: relative;
 }
 
-.cards:hover {
-  transform: scale(1.04);
-}
-
-img {
+.cards img {
   width: 100%;
   object-fit: cover;
   height: 179px;
-  border-radius: 15px 15px 0px 0px;
-}
-
-.margin-texth3 {
-  margin: -15px 0px 0px 10px;
-}
-
-.margin-textp {
-  margin: 10px;
+  border-radius: 15px 15px 0 0;
 }
 
 .padd-text {
-  padding-top: 20px;
+  padding: 20px; /* Add padding for better spacing */
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* Adjust spacing between elements */
+}
+
+.margin-texth3 {
+  margin: 0;
+  font-size: 18px; /* Adjust font size */
+}
+
+.margin-textp {
+  margin: 5px 0 10px 0; /* Adjust margin */
 }
 
 .box-text {
@@ -400,50 +213,78 @@ img {
   color: #0f9070;
   position: absolute;
   top: 20px;
-  right: 45px;
-  width: 76px;
-  text-align: center;
+  right: 20px; /* Adjust position */
+  width: auto;
 }
 
-.heart-pos {
+@media (min-width: 768px) {
+  .cards-container {
+    flex-direction: row; /* Switch to row layout for larger screens */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+  }
+  .cards {
+    flex: 0 1 calc(50% - 10px); /* Adjust width for larger screens */
+    margin-bottom: 20px;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.palette-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* S'assurer que le contenu ne dépasse pas */
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.palette-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px; /* Bords arrondis pour le menu */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.palette-page .titre-menu {
+  display: flex;
+  justify-content: center; /* Centrer le titre */
+  align-items: center; /* Aligner les éléments verticalement */
+  position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
+  width: 100%;
+  padding: 20px;
+}
+
+.palette-page .heart-palette {
   position: absolute;
-  right: 32px;
-  bottom: 23px;
+  right: 2px; /* Ajuste cette valeur si nécessaire */
   font-size: 24px;
   cursor: pointer;
 }
 
-.heart-pos input[type=checkbox] {
-  display: none; /* Masquer la case à cocher par défaut */
-}
-
-.heart-full {
-  opacity: 0;
-  transition: opacity 0.5s ease, color 0.5s ease, -webkit-background-clip 0.5s ease;
-}
-
-.heart-pos input[type=checkbox]:checked ~ .heart-full {
-  opacity: 1;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-.heart-checkbox {
+.palette-page .heart-palette input[type=checkbox] {
   display: none;
 }
 
-.heart-empty,
-.heart-full {
-  position: absolute;
-  right: 32px;
-  bottom: 23px;
+.palette-page .heart-palette .heart-empty,
+.palette-page .heart-palette .heart-full {
   font-size: 24px;
-  transition: color 0.5s ease;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
 }
 
-.heart-full {
+.palette-page .heart-palette .heart-full {
   opacity: 0;
   color: transparent;
   -webkit-background-clip: text;
@@ -451,11 +292,11 @@ img {
   background-clip: text;
 }
 
-.heart-checkbox:checked + label .heart-empty {
+.palette-page .heart-palette input[type=checkbox]:checked + label .heart-empty {
   opacity: 0;
 }
 
-.heart-checkbox:checked + label .heart-full {
+.palette-page .heart-palette input[type=checkbox]:checked + label .heart-full {
   opacity: 1;
   color: transparent;
   -webkit-background-clip: text;
@@ -463,254 +304,49 @@ img {
   background-clip: text;
 }
 
-.palette-page .heart-palette {
-  bottom: 20px;
-  position: absolute;
-  right: 32px;
+.palette-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 
-.palette-page .pos-heart-palette {
-  bottom: -21px;
-  margin-right: 10px;
+.palette-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white; /* Couleur blanc pour les boutons */
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
 }
 
-.palette-page .heart-checkbox {
-  display: none;
+.palette-page .text-plats {
+  display: flex;
+  flex-direction: column;
+  width: 70%; /* Adjust this to fit your design */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.palette-page .heart-empty,
-.palette-page .heart-full {
-  font-size: 24px;
-  transition: color 0.5s ease;
+.palette-page .prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
 }
 
-.palette-page .heart-full {
-  opacity: 0;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
+.palette-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
 }
 
-.palette-page .heart-checkbox:checked + label .heart-empty {
-  opacity: 0;
-}
-
-.palette-page .heart-checkbox:checked + label .heart-full {
-  opacity: 1;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-.note_enchante .heart-palette {
-  bottom: 20px;
-  position: absolute;
-  right: 32px;
-}
-
-.note_enchante .pos-heart-palette {
-  bottom: -21px;
-  margin-right: 10px;
-}
-
-.note_enchante .heart-checkbox {
-  display: none;
-}
-
-.note_enchante .heart-empty,
-.note_enchante .heart-full {
-  font-size: 24px;
-  transition: color 0.5s ease;
-}
-
-.note_enchante .heart-full {
-  opacity: 0;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-.note_enchante .heart-checkbox:checked + label .heart-empty {
-  opacity: 0;
-}
-
-.note_enchante .heart-checkbox:checked + label .heart-full {
-  opacity: 1;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-.a_la_fr .heart-palette {
-  bottom: 20px;
-  position: absolute;
-  right: 32px;
-}
-
-.a_la_fr .pos-heart-palette {
-  bottom: -21px;
-  margin-right: 10px;
-}
-
-.a_la_fr .heart-checkbox {
-  display: none;
-}
-
-.a_la_fr .heart-empty,
-.a_la_fr .heart-full {
-  font-size: 24px;
-  transition: color 0.5s ease;
-}
-
-.a_la_fr .heart-full {
-  opacity: 0;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-.a_la_fr .heart-checkbox:checked + label .heart-empty {
-  opacity: 0;
-}
-
-.a_la_fr .heart-checkbox:checked + label .heart-full {
-  opacity: 1;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-.delice_sens .heart-palette {
-  bottom: 20px;
-  position: absolute;
-  right: 32px;
-}
-
-.delice_sens .pos-heart-palette {
-  bottom: -21px;
-  margin-right: 10px;
-}
-
-.delice_sens .heart-checkbox {
-  display: none;
-}
-
-.delice_sens .heart-empty,
-.delice_sens .heart-full {
-  font-size: 24px;
-  transition: color 0.5s ease;
-}
-
-.delice_sens .heart-full {
-  opacity: 0;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-.delice_sens .heart-checkbox:checked + label .heart-empty {
-  opacity: 0;
-}
-
-.delice_sens .heart-checkbox:checked + label .heart-full {
-  opacity: 1;
-  color: transparent;
-  -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  background-clip: text;
-}
-
-@media (min-width: 768px) {
-  header {
-    flex-direction: row;
-  }
-  .intro {
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-  }
-  .texte-intro {
-    text-align: center;
-    align-items: center;
-  }
-  .button-intro {
-    align-self: center;
-  }
-  .flitres {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-  }
-  nav button {
-    width: 32%;
-    margin: 0;
-  }
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-  }
-  .cards {
-    flex: 0 1 calc(50% - 10px);
-    margin-bottom: 20px;
-  }
-  .padd-text {
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-@media (min-width: 1024px) {
-  .intro {
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-  }
-  .texte-intro {
-    text-align: center;
-    align-items: center;
-  }
-  .button-intro {
-    align-self: center;
-  }
-  .flitres {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-  }
-  nav button {
-    width: 32%;
-    margin: 0;
-  }
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-  }
-  .cards {
-    flex: 0 1 calc(50% - 10px);
-    margin-bottom: 20px;
-  }
-  .padd-text {
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-/**** palette du goût ****/
 .back {
   position: absolute;
   margin: 21px;
@@ -720,17 +356,19 @@ img {
 
 .image {
   height: 245px;
+  width: 100%; /* Ajouté pour s'assurer que l'image ne dépasse pas */
+  overflow: hidden; /* Assurez-vous que l'image respecte les bords arrondis */
 }
 
 .image img {
   width: 100%;
-  border-radius: 0px;
-  height: 275px;
+  height: 100%;
+  object-fit: cover; /* Assurez-vous que l'image s'adapte bien */
 }
 
 .menu {
   padding: 30px 10px;
-  background-color: #f6f6f6;
+  background-color: #f6f6f6; /* Couleur gris pour le menu */
   border-radius: 30px 30px 0px 0px;
 }
 
@@ -760,7 +398,7 @@ img {
   overflow: hidden;
 }
 
-.button-plats:hover > .check {
+.button-plats:hover .check {
   margin-right: 0;
 }
 
@@ -805,7 +443,7 @@ img {
   display: flex;
   justify-content: flex-end;
   top: 21px;
-  right: 20px;
+  right: 2px; /* Ajuste cette valeur si nécessaire */
   font-size: 24px;
   cursor: pointer;
 }
@@ -814,7 +452,6 @@ img {
   position: absolute;
 }
 
-/* ... Existing styles ... */
 .button-plats {
   opacity: 0;
   transform: translateY(20px);
@@ -869,6 +506,893 @@ img {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100px;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: -80px; /* Hide it initially */
+  transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+}
+
+.icone-check {
+  color: white;
+  font-size: 24px;
+}
+
+/* Ajouter un état actif pour maintenir la case cochée après clic */
+.button-plats.active .check {
+  width: 50px;
+  margin-right: 0;
+}
+
+.button-plats input[type=checkbox] {
+  display: none;
+}
+
+.button-plats input[type=checkbox]:checked + .check {
+  width: calc(100% - 20px); /* Faire en sorte que la case coche prenne toute la hauteur */
+  height: 100%;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .palette-page .button-plats {
+    height: 80px; /* Ajuster la hauteur des boutons pour desktop */
+    width: 600px;
+    border-radius: 15px; /* Arrondir les bords */
+    padding: 20px 60px; /* Ajouter du padding pour élargir les boutons */
+  }
+  .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    background: #99e2d0;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: -130px; /* Hide it initially */
+    transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+  }
+  .palette-page .prix {
+    margin-top: 45px;
+    margin-left: auto; /* Aligner les prix à droite */
+    padding-right: 40px; /* Ajouter plus d'espace à droite du prix pour aligner */
+  }
+}
+.palette-page .titre-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.palette-page .heart-palette {
+  position: absolute;
+  right: 200px; /* Ajuste cette valeur si nécessaire */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 0; /* Réduire le padding en bas */
+}
+
+.localisation {
+  background-color: rgb(239, 239, 239);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.localisation i {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 125px;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.texte-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f6f6f6;
+  padding: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 0; /* Réduire le padding en bas */
+}
+
+.button-intro {
+  border-radius: 28px;
+  color: white;
+  font-size: 16px;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  justify-content: center;
+  display: flex;
+  width: 206px;
+  margin: 20px auto;
+}
+
+.button-intro:hover {
+  transform: scale(1.05);
+  opacity: 0.6;
+  box-shadow: 5px 4px 5px 2px rgba(107, 107, 107, 0.98);
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.a_la_fr-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* S'assurer que le contenu ne dépasse pas */
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.a_la_fr-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px; /* Bords arrondis pour le menu */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.a_la_fr-page .titre-menu {
+  display: flex;
+  justify-content: center; /* Centrer le titre */
+  align-items: center; /* Aligner les éléments verticalement */
+  position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
+  width: 100%;
+  padding: 20px;
+}
+
+.a_la_fr-page .heart-palette {
+  position: absolute;
+  right: 2px; /* Ajuste cette valeur si nécessaire */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.a_la_fr-page .heart-palette input[type=checkbox] {
+  display: none;
+}
+
+.a_la_fr-page .heart-palette .heart-empty,
+.a_la_fr-page .heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.a_la_fr-page .heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.a_la_fr-page .heart-palette input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.a_la_fr-page .heart-palette input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.a_la_fr-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.a_la_fr-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white; /* Couleur blanc pour les boutons */
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
+}
+
+.a_la_fr-page .text-plats {
+  display: flex;
+  flex-direction: column;
+  width: 70%; /* Adjust this to fit your design */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.a_la_fr-page .prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+}
+
+.a_la_fr-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.back {
+  position: absolute;
+  margin: 21px;
+  font-size: 21px;
+  color: black;
+}
+
+.image {
+  height: 245px;
+  width: 100%; /* Ajouté pour s'assurer que l'image ne dépasse pas */
+  overflow: hidden; /* Assurez-vous que l'image respecte les bords arrondis */
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assurez-vous que l'image s'adapte bien */
+}
+
+.menu {
+  padding: 30px 10px;
+  background-color: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px;
+}
+
+.titre-menu {
+  display: flex;
+  position: relative;
+}
+
+.titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+}
+
+.plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-plats {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: white;
+  height: 72px;
+  overflow: hidden;
+}
+
+.button-plats:hover .check {
+  margin-right: 0;
+}
+
+@keyframes checkrotate {
+  0% {
+    transform: rotate(-300deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.button-plats:hover i {
+  animation: checkrotate 0.5s ease;
+}
+
+.text-plats {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.text-plats > h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.text-plats > p {
+  margin-top: -9px;
+}
+
+.prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+}
+
+.heart-palette {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  top: 21px;
+  right: 2px; /* Ajuste cette valeur si nécessaire */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pos-heart-palette {
+  position: absolute;
+}
+
+.button-plats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entry:nth-child(1) {
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+}
+
+.entry:nth-child(2) {
+  animation: fadeInUp 0.5s ease 1s forwards;
+}
+
+.entry:nth-child(3) {
+  animation: fadeInUp 0.5s ease 1.5s forwards;
+}
+
+.entry:nth-child(4) {
+  animation: fadeInUp 0.5s ease 1.75s forwards;
+}
+
+.main:nth-child(1) {
+  animation: fadeInUp 0.5s ease 2s forwards;
+}
+
+.main:nth-child(2) {
+  animation: fadeInUp 0.5s ease 2.5s forwards;
+}
+
+.main:nth-child(3) {
+  animation: fadeInUp 0.5s ease 3s forwards;
+}
+
+.dessert:nth-child(1) {
+  animation: fadeInUp 0.5s ease 3.5s forwards;
+}
+
+.dessert:nth-child(2) {
+  animation: fadeInUp 0.5s ease 4s forwards;
+}
+
+.dessert:nth-child(3) {
+  animation: fadeInUp 0.5s ease 4.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100px;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: -80px; /* Hide it initially */
+  transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+}
+
+.icone-check {
+  color: white;
+  font-size: 24px;
+}
+
+/* Ajouter un état actif pour maintenir la case cochée après clic */
+.button-plats.active .check {
+  width: 50px;
+  margin-right: 0;
+}
+
+.button-plats input[type=checkbox] {
+  display: none;
+}
+
+.button-plats input[type=checkbox]:checked + .check {
+  width: calc(100% - 20px); /* Faire en sorte que la case coche prenne toute la hauteur */
+  height: 100%;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .a_la_fr-page .button-plats {
+    height: 80px; /* Ajuster la hauteur des boutons pour desktop */
+    width: 600px;
+    border-radius: 15px; /* Arrondir les bords */
+    padding: 20px 60px; /* Ajouter du padding pour élargir les boutons */
+  }
+  .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    background: #99e2d0;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: -130px; /* Hide it initially */
+    transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+  }
+  .a_la_fr-page .prix {
+    margin-top: 45px;
+    margin-left: auto; /* Aligner les prix à droite */
+    padding-right: 40px; /* Ajouter plus d'espace à droite du prix pour aligner */
+  }
+}
+.a_la_fr-page .titre-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.a_la_fr-page .heart-palette {
+  position: absolute;
+  right: 2px; /* Ajuste cette valeur si nécessaire */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delice_sens-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delice_sens-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delice_sens-page .titre-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+
+.delice_sens-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.delice_sens-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f6f6f6;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+}
+
+.delice_sens-page .text-plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.delice_sens-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.note_enchante-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note_enchante-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note_enchante-page .titre-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+
+.note_enchante-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.note_enchante-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f6f6f6;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+}
+
+.note_enchante-page .text-plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.note_enchante-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.heart-pos {
+  position: absolute;
+  right: 32px;
+  bottom: 23px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.heart-pos input[type=checkbox] {
+  display: none;
+}
+
+.heart-full {
+  opacity: 0;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.heart-pos input[type=checkbox]:checked ~ .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-checkbox {
+  display: none;
+}
+
+.heart-empty,
+.heart-full {
+  position: absolute;
+  left: 135px;
+  bottom: 25px;
+  font-size: 24px;
+  transition: color 1s ease;
+}
+
+.heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-checkbox:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.heart-checkbox:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-palette {
+  position: relative;
+}
+
+.heart-palette input[type=checkbox] {
+  display: none;
+}
+
+.heart-palette .heart-empty,
+.heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-palette input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.heart-palette input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.palette-page .heart-palette,
+.note_enchante .heart-palette,
+.a_la_fr .heart-palette,
+.delice_sens .heart-palette {
+  bottom: 20px;
+  position: absolute;
+  right: 229px;
+}
+
+.palette-page .pos-heart-palette,
+.note_enchante .pos-heart-palette,
+.a_la_fr .pos-heart-palette,
+.delice_sens .pos-heart-palette {
+  bottom: 1px;
+  margin-right: 10px;
+}
+
+.palette-page .heart-checkbox,
+.note_enchante .heart-checkbox,
+.a_la_fr .heart-checkbox,
+.delice_sens .heart-checkbox {
+  display: none;
+}
+
+.palette-page .heart-empty,
+.palette-page .heart-full,
+.note_enchante .heart-empty,
+.note_enchante .heart-full,
+.a_la_fr .heart-empty,
+.a_la_fr .heart-full,
+.delice_sens .heart-empty,
+.delice_sens .heart-full {
+  font-size: 24px;
+  transition: color 0.5s ease;
+}
+
+.palette-page .heart-full,
+.note_enchante .heart-full,
+.a_la_fr .heart-full,
+.delice_sens .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.palette-page .heart-checkbox:checked + label .heart-empty,
+.note_enchante .heart-checkbox:checked + label .heart-empty,
+.a_la_fr .heart-checkbox:checked + label .heart-empty,
+.delice_sens .heart-checkbox:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.palette-page .heart-checkbox:checked + label .heart-full,
+.note_enchante .heart-checkbox:checked + label .heart-full,
+.a_la_fr .heart-checkbox:checked + label .heart-full,
+.delice_sens .heart-checkbox:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  animation: fadeIn 0s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.loader-container.hide-loader {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.loader {
+  height: 150px;
+  width: 150px;
+  border: 12px solid #9356dc;
+  border-radius: 50%;
+  border-bottom-color: #ff79da;
+  border-top-color: #99e2d0;
+  animation: spin 3s forwards;
+}
+
+/***** nav.scss *****/
+nav {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav h2 {
+  margin-bottom: 20px;
+  text-align: left; /* Alignement à gauche */
+  align-self: flex-start; /* Place le titre au début */
+  margin-left: calc(50% - 175px); /* Ajuster cette valeur pour aligner le titre avec le premier bouton */
+}
+nav .flitres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  nav .flitres {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+nav button {
+  width: 100%;
+  max-width: 350px; /* Set max-width */
+  border-radius: 20px;
+  height: 73px;
+  border: none;
+  background-color: #f6f6f6;
+  margin: 15px 0; /* Ajustement de la marge */
+  cursor: pointer;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1490196078);
+}
+nav button i {
+  margin: auto;
+}
+nav .flitres button i.fa-store {
+  color: #9356dc;
+}
+nav .text-button {
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+nav .numero {
+  background: #9356dc;
+  color: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: -18px;
+  margin-bottom: -18px;
+  align-items: center;
+}
+
+/* Media Queries pour les écrans plus larges */
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alignement à gauche */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrer horizontalement */
+  }
+  nav h2 {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: left; /* Alignement à gauche */
+    align-self: flex-start; /* Pour aligner à gauche */
+  }
+  .flitres {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Alignement à gauche */
+    gap: 20px;
+    width: 100%;
+  }
+  .flitres button:first-child {
+    margin-left: 0; /* Aligner le premier bouton avec le titre */
   }
 }
 

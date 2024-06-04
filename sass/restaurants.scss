@@ -1,0 +1,80 @@
+@import "./variables.scss";
+
+.restaurants {
+  background-color: $bg-color;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin-bottom: 20px; /* Adjust spacing */
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items */
+  gap: 20px; /* Add gap between cards */
+  width: 100%;
+}
+
+.cards {
+  width: 90%; /* Adjust width for mobile view */
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px #0000001a;
+  position: relative;
+}
+
+.cards img {
+  width: 100%;
+  object-fit: cover;
+  height: 179px;
+  border-radius: 15px 15px 0 0;
+}
+
+.padd-text {
+  padding: 20px; /* Add padding for better spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Adjust spacing between elements */
+}
+
+.margin-texth3 {
+  margin: 0;
+  font-size: 18px; /* Adjust font size */
+}
+
+.margin-textp {
+  margin: 5px 0 10px 0; /* Adjust margin */
+}
+
+.box-text {
+  background-color: #99e2d0;
+  padding: 7px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0f9070;
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Adjust position */
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .cards-container {
+    flex-direction: row; /* Switch to row layout for larger screens */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+  }
+
+  .cards {
+    flex: 0 1 calc(50% - 10px); /* Adjust width for larger screens */
+    margin-bottom: 20px;
+  }
+}
