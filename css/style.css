@@ -2087,7 +2087,6 @@ nav .numero {
   align-items: flex-start; /* Align items to the start */
 }
 .index-page .restaurants h2 {
-  align-self: left; /* Align h2 to the left */
   margin-left: 20px; /* Adjust the left margin if needed */
   margin-top: 0; /* Adjust the top margin if needed */
 }
