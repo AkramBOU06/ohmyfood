@@ -39,7 +39,9 @@ body {
 
 .palette-page .heart-palette {
   position: absolute;
-  right: 2px; /* Ajuste cette valeur si nécessaire */
+  right: 10px; /* Ajuster cette valeur pour placer le cœur correctement */
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 24px;
   cursor: pointer;
 }
@@ -213,8 +215,9 @@ body {
   position: absolute;
   display: flex;
   justify-content: flex-end;
-  top: 21px;
-  right: 2px; /* Ajuste cette valeur si nécessaire */
+  top: 50%;
+  right: 10px; /* Ajuste cette valeur si nécessaire */
+  transform: translateY(-50%);
   font-size: 24px;
   cursor: pointer;
 }
@@ -314,10 +317,6 @@ body {
 }
 
 @media (min-width: 768px) {
-
-
-
-
   .palette-page .button-plats {
     height: 80px; /* Ajuster la hauteur des boutons pour desktop */
     width: 600px;
@@ -354,7 +353,9 @@ body {
 }
 .palette-page .heart-palette {
     position: absolute;
-    right: 200px; /* Ajuste cette valeur si nécessaire */
+    right: 200px; /* Ajuste cette valeur si nécessaire */  
+top: 90px;
+    transform: translateY(-50%);
     font-size: 24px;
     cursor: pointer;
 }

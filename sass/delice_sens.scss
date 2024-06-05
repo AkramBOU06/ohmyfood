@@ -1,56 +1,362 @@
 @import "./variables.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
 .delice_sens-page main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* S'assurer que le contenu ne dépasse pas */
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.delice_sens-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px; /* Bords arrondis pour le menu */
+  box-shadow: 0px 4px 15px 0px #0000001a;
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delice_sens-page .titre-menu {
+  display: flex;
+  justify-content: center; /* Centrer le titre */
+  align-items: center; /* Aligner les éléments verticalement */
+  position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
+  width: 100%;
+  padding: 20px;
+}
+
+.delice_sens-page .heart-palette {
+  position: absolute;
+  right: 10px; /* Ajuster cette valeur pour placer le cœur correctement */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delice_sens-page .heart-palette input[type="checkbox"] {
+  display: none;
+}
+
+.delice_sens-page .heart-palette .heart-empty,
+.delice_sens-page .heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.delice_sens-page .heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+  background-clip: text;
+}
+
+.delice_sens-page .heart-palette input[type="checkbox"]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.delice_sens-page .heart-palette input[type="checkbox"]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+  background-clip: text;
+}
+
+.delice_sens-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.delice_sens-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white; /* Couleur blanc pour les boutons */
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px 0px #0000001a;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
+}
+
+.delice_sens-page .text-plats {
+  display: flex;
+  flex-direction: column;
+  width: 70%; /* Adjust this to fit your design */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.delice_sens-page .prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+}
+
+.delice_sens-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.back {
+  position: absolute;
+  margin: 21px;
+  font-size: 21px;
+  color: black;
+}
+
+.image {
+  height: 245px;
+  width: 100%; /* Ajouté pour s'assurer que l'image ne dépasse pas */
+  overflow: hidden; /* Assurez-vous que l'image respecte les bords arrondis */
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assurez-vous que l'image s'adapte bien */
+}
+
+.menu {
+  padding: 30px 10px;
+  background-color: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px;
+}
+
+.titre-menu {
+  display: flex;
+  position: relative;
+}
+
+.titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+}
+
+.plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-plats {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px #0000001a;
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: white;
+  height: 72px;
+  overflow: hidden;
+}
+
+.button-plats:hover .check {
+  margin-right: 0;
+}
+
+@keyframes checkrotate {
+  0% {
+    transform: rotate(-300deg);
   }
-  
-  .delice_sens-page .menu {
-    max-width: 800px;
-    width: 100%;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px 0px #0000001a;
-    margin-top: -50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  100% {
+    transform: rotate(0deg);
   }
-  
-  .delice_sens-page .titre-menu {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
+}
+
+.button-plats:hover i {
+  animation: checkrotate 0.5s ease;
+}
+
+.text-plats {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.text-plats > h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.text-plats > p {
+  margin-top: -9px;
+}
+
+.prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+}
+
+.heart-palette {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  top: 50%;
+  right: 10px; /* Ajuste cette valeur si nécessaire */
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pos-heart-palette {
+  position: absolute;
+}
+
+.button-plats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entry:nth-child(1) {
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+}
+
+.entry:nth-child(2) {
+  animation: fadeInUp 0.5s ease 1s forwards;
+}
+
+.entry:nth-child(3) {
+  animation: fadeInUp 0.5s ease 1.5s forwards;
+}
+
+.entry:nth-child(4) {
+  animation: fadeInUp 0.5s ease 1.75s forwards;
+}
+
+.main:nth-child(1) {
+  animation: fadeInUp 0.5s ease 2s forwards;
+}
+
+.main:nth-child(2) {
+  animation: fadeInUp 0.5s ease 2.5s forwards;
+}
+
+.main:nth-child(3) {
+  animation: fadeInUp 0.5s ease 3s forwards;
+}
+
+.dessert:nth-child(1) {
+  animation: fadeInUp 0.5s ease 3.5s forwards;
+}
+
+.dessert:nth-child(2) {
+  animation: fadeInUp 0.5s ease 4s forwards;
+}
+
+.dessert:nth-child(3) {
+  animation: fadeInUp 0.5s ease 4.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .delice_sens-page .plats {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100px;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: -80px; /* Hide it initially */
+  transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+}
+
+.icone-check {
+  color: white;
+  font-size: 24px;
+}
+
+/* Ajouter un état actif pour maintenir la case cochée après clic */
+.button-plats.active .check {
+  width: 50px;
+  margin-right: 0;
+}
+
+.button-plats input[type="checkbox"] {
+  display: none;
+}
+
+.button-plats input[type="checkbox"]:checked + .check {
+  width: calc(100% - 20px); /* Faire en sorte que la case coche prenne toute la hauteur */
+  height: 100%;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
   .delice_sens-page .button-plats {
+    height: 80px; /* Ajuster la hauteur des boutons pour desktop */
+    width: 600px;
+    border-radius: 15px; /* Arrondir les bords */
+    padding: 20px 60px; /* Ajouter du padding pour élargir les boutons */
+  }
+
+  .check {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    background: #f6f6f6;
-    border-radius: 5px;
-    box-shadow: 0px 2px 10px 0px #0000001a;
-    width: 100%;
+    width: 50px;
+    height: 100px;
+    background: #99e2d0;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: -130px; /* Hide it initially */
+    transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
   }
-  
-  .delice_sens-page .text-plats {
+
+  .delice_sens-page .prix {
+    margin-top: 45px;
+    margin-left: auto; /* Aligner les prix à droite */
+    padding-right: 40px; /* Ajouter plus d'espace à droite du prix pour aligner */
+  }
+}
+
+.delice_sens-page .titre-menu {
     display: flex;
-    flex-direction: column;
-  }
-  
-  .delice_sens-page .button-intro {
-    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     width: 100%;
-    max-width: 400px;
-  }
-  
+    padding: 20px;
+}
+
+.delice_sens-page .heart-palette {
+    position: relative;
+    right: 115px;
+    top: 35px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+}

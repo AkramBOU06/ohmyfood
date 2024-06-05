@@ -39,7 +39,7 @@ body {
 
 .a_la_fr-page .heart-palette {
   position: absolute;
-  right: 2px; /* Ajuste cette valeur si nécessaire */
+  right: 200px; /* Ajuste cette valeur si nécessaire */
   font-size: 24px;
   cursor: pointer;
 }
@@ -349,8 +349,10 @@ body {
     padding: 20px;
 }
 .a_la_fr-page .heart-palette {
-    position: absolute;
-    right: 2px; /* Ajuste cette valeur si nécessaire */
-    font-size: 24px;
-    cursor: pointer;
+  top: 35px;
+  position: relative;
+  right: 115px;
+  font-size: 24px;
+  cursor: pointer;
 }
+
