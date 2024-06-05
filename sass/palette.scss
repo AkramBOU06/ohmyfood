@@ -20,7 +20,7 @@ body {
   width: 100%;
   padding: 20px;
   background: #f6f6f6; /* Couleur gris pour le menu */
-  border-radius: 30px 30px 0px 0px; /* Bords arrondis pour le menu */
+  border-radius: 70px; /* Bords arrondis pour le menu */
   box-shadow: 0px 4px 15px 0px #0000001a;
   margin-top: -50px;
   display: flex;
@@ -30,7 +30,7 @@ body {
 
 .palette-page .titre-menu {
   display: flex;
-  justify-content: center; /* Centrer le titre */
+  justify-content: flex-start; /* Aligner le titre à gauche */
   align-items: center; /* Aligner les éléments verticalement */
   position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
   width: 100%;
@@ -39,7 +39,7 @@ body {
 
 .palette-page .heart-palette {
   position: absolute;
-  right: 10px; /* Ajuster cette valeur pour placer le cœur correctement */
+  right: 20px; /* Ajuster cette valeur pour placer le cœur correctement */
   top: 50%;
   transform: translateY(-50%);
   font-size: 24px;
@@ -88,20 +88,33 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: white; /* Couleur blanc pour les boutons */
-  border-radius: 5px;
+  background: white;
+  border-radius: 15px;
   box-shadow: 0px 2px 10px 0px #0000001a;
   width: 100%;
   box-sizing: border-box;
-  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
+  position: relative;
+  overflow: hidden;
 }
 
 .palette-page .text-plats {
   display: flex;
   flex-direction: column;
-  width: 70%; /* Adjust this to fit your design */
-  overflow: hidden;
+  width: calc(100% - 100px); /* Augmenter la largeur pour inclure plus de texte */
+  white-space: normal; /* Texte entièrement visible par défaut */
+  overflow: visible;
+}
+
+.palette-page .text-plats > h4,
+.palette-page .text-plats > p {
+  white-space: normal;
+  overflow: visible;
+}
+
+.palette-page .button-plats input[type="checkbox"]:checked ~ .text-plats > h4,
+.palette-page .button-plats input[type="checkbox"]:checked ~ .text-plats > p {
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -111,6 +124,7 @@ body {
   font-weight: bolder;
   padding: 0px 20px 12px 0px;
   white-space: nowrap;
+  margin-left: auto; /* Déplacer les prix vers la droite */
 }
 
 .palette-page .button-intro {
@@ -170,8 +184,16 @@ body {
   overflow: hidden;
 }
 
-.button-plats:hover .check {
-  margin-right: 0;
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-left: auto; /* Aligner le check à droite */
+  transition: width 0.5s, margin-left 0.5s; /* Transition pour animer la largeur et la marge */
 }
 
 @keyframes checkrotate {
@@ -183,6 +205,11 @@ body {
   }
 }
 
+.button-plats input[type="checkbox"]:checked + .check {
+  width: calc(100% - 20px); /* Étendre la largeur à 100% lorsqu'il est coché */
+  margin-left: 0; /* Enlever la marge pour que le check prenne toute la place */
+}
+
 .button-plats:hover i {
   animation: checkrotate 0.5s ease;
 }
@@ -190,7 +217,7 @@ body {
 .text-plats {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 100px); /* Ajuster la largeur pour prendre en compte le prix */
   justify-content: center;
   padding-left: 10px;
 }
@@ -198,10 +225,21 @@ body {
 .text-plats > h4 {
   margin-bottom: 16px;
   font-size: 18px;
+  white-space: normal; /* Texte entièrement visible par défaut */
+  overflow: visible;
 }
 
 .text-plats > p {
   margin-top: -9px;
+  white-space: normal; /* Texte entièrement visible par défaut */
+  overflow: visible;
+}
+
+.palette-page .button-plats input[type="checkbox"]:checked ~ .text-plats > h4,
+.palette-page .button-plats input[type="checkbox"]:checked ~ .text-plats > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .prix {
@@ -209,6 +247,8 @@ body {
   align-items: flex-end;
   font-weight: bolder;
   padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+  margin-left: auto; /* Aligner les prix à droite */
 }
 
 .heart-palette {
@@ -283,39 +323,6 @@ body {
   }
 }
 
-.check {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 100px;
-  background: #99e2d0;
-  border-radius: 0px 15px 15px 0px;
-  margin-right: -80px; /* Hide it initially */
-  transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
-}
-
-.icone-check {
-  color: white;
-  font-size: 24px;
-}
-
-/* Ajouter un état actif pour maintenir la case cochée après clic */
-.button-plats.active .check {
-  width: 50px;
-  margin-right: 0;
-}
-
-.button-plats input[type="checkbox"] {
-  display: none;
-}
-
-.button-plats input[type="checkbox"]:checked + .check {
-  width: calc(100% - 20px); /* Faire en sorte que la case coche prenne toute la hauteur */
-  height: 100%;
-  margin-right: 0;
-}
-
 @media (min-width: 768px) {
   .palette-page .button-plats {
     height: 80px; /* Ajuster la hauteur des boutons pour desktop */
@@ -344,18 +351,21 @@ body {
 }
 
 .palette-page .titre-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    padding: 20px;
+  margin-right: 20px;
+  align-self: center;
+  display: flex;
+  justify-content: center; /* Alignement à gauche */
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
 }
+
 .palette-page .heart-palette {
-    position: absolute;
-    right: 200px; /* Ajuste cette valeur si nécessaire */  
-top: 90px;
-    transform: translateY(-50%);
-    font-size: 24px;
-    cursor: pointer;
+  position: absolute;
+  right: 20px; /* Ajuste cette valeur si nécessaire */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
 }

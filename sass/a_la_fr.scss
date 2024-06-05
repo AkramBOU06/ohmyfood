@@ -7,6 +7,16 @@ body {
   overflow-x: hidden; /* Empêche le débordement horizontal */
 }
 
+.a_la_fr-page .titre-menu h2 {
+  font-family: "Shrikhand", serif;
+    font-weight: lighter;
+    margin-right: 180px;
+
+
+
+}
+
+
 .a_la_fr-page main {
   display: flex;
   flex-direction: column;
@@ -20,7 +30,7 @@ body {
   width: 100%;
   padding: 20px;
   background: #f6f6f6; /* Couleur gris pour le menu */
-  border-radius: 30px 30px 0px 0px; /* Bords arrondis pour le menu */
+  border-radius: 70px; /* Bords arrondis pour le menu */
   box-shadow: 0px 4px 15px 0px #0000001a;
   margin-top: -50px;
   display: flex;
@@ -38,8 +48,8 @@ body {
 }
 
 .a_la_fr-page .heart-palette {
-  position: absolute;
-  right: 200px; /* Ajuste cette valeur si nécessaire */
+  position: relative;
+  right: 300px; /* Ajuste cette valeur si nécessaire */
   font-size: 24px;
   cursor: pointer;
 }
@@ -87,7 +97,7 @@ body {
   align-items: center;
   padding: 20px;
   background: white; /* Couleur blanc pour les boutons */
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0px 2px 10px 0px #0000001a;
   width: 100%;
   box-sizing: border-box;
@@ -102,6 +112,18 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.a_la_fr-page .text-plats > h4, 
+.a_la_fr-page .text-plats > p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+
+
 
 .a_la_fr-page .prix {
   display: flex;
@@ -150,6 +172,7 @@ body {
 .titre-menu h2 {
   font-family: "Shrikhand", serif;
   font-weight: lighter;
+  margin-right: 130px;
 }
 
 .plats {
@@ -351,7 +374,7 @@ body {
 .a_la_fr-page .heart-palette {
   top: 35px;
   position: relative;
-  right: 115px;
+  right: 300px;
   font-size: 24px;
   cursor: pointer;
 }

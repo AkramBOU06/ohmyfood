@@ -35,7 +35,6 @@
     opacity: 1;
     color: transparent;
     -webkit-background-clip: text;
-    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
     background-clip: text;
   }
 
@@ -44,11 +43,17 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align items to the start */
 
     h2 {
-      margin-bottom: 20px; /* Adjust spacing */
+      align-self: left; /* Align h2 to the left */
+      margin-left: 20px; /* Adjust the left margin if needed */
+      margin-top: 0; /* Adjust the top margin if needed */
     }
+  }
+
+  main {
+    overflow: hidden;
   }
 
   .cards-container {
@@ -104,12 +109,25 @@
   }
 
   @media (min-width: 768px) {
+    .restaurants {
+      align-items: flex-start; /* Align items to the start for desktop view */
+      padding-left: 0;
+
+      h2 {
+        align-self: center;
+        text-align: center; /* Align h2 to the left for desktop */
+        margin-left: 0; /* Adjust the left margin if needed */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+      }
+    }
+
     .cards-container {
       flex-direction: row; /* Switch to row layout for larger screens */
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 20px;
       max-width: 1200px;
+      margin: 0 auto; /* Center the container */
     }
 
     .cards {
