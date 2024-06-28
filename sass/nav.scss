@@ -1,0 +1,106 @@
+@import "./variables.scss";
+
+/***** nav.scss *****/
+
+nav {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        margin-bottom: 20px;
+        text-align: left; /* Alignement à gauche */
+        align-self: flex-start; /* Place le titre au début */
+        margin-left: calc(50% - 175px); /* Ajuster cette valeur pour aligner le titre avec le premier bouton */
+    }
+
+    .flitres {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+    }
+
+    button {
+        width: 100%;
+        max-width: 350px; /* Set max-width */
+        border-radius: 20px;
+        height: 73px;
+        border: none;
+        background-color: #f6f6f6;
+        margin: 15px 0; /* Ajustement de la marge */
+        cursor: pointer;
+        box-shadow: 0px 4px 15px 0px #00000026;
+
+        i {
+            margin: auto;
+        }
+    }
+
+    .flitres button i.fa-store {
+        color: #9356dc;
+    }
+
+    .text-button {
+        padding-left: 15px;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .numero {
+        background: #9356dc;
+        color: white;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        margin-left: -18px;
+        margin-bottom: -18px;
+        align-items: center;
+    }
+}
+
+/* Media Queries pour les écrans plus larges */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alignement à gauche */
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto; /* Centrer horizontalement */
+    }
+
+    nav h2 {
+        margin-left: 20px;
+        margin-bottom: 20px;
+        text-align: left; /* Alignement à gauche */
+        align-self: flex-start; /* Pour aligner à gauche */
+    }
+
+    .flitres {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; /* Alignement à gauche */
+        gap: 20px;
+        width: 100%;
+    }
+
+    .flitres button:first-child {
+        margin-left: 0; /* Aligner le premier bouton avec le titre */
+    }
+}

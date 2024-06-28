@@ -1,0 +1,96 @@
+@import "./variables.scss";
+
+.restaurants {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 0;
+  background-color: $bg-color; // Ajoutez cette ligne pour la couleur de fond
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); // Assurez-vous que l'élément commence au bord de l'écran
+
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer les cartes */
+    gap: 20px; /* Espacement entre les cartes */
+    width: 100%;
+    padding: 0; /* Suppression du padding */
+    box-sizing: border-box; /* Assurer que les marges et paddings soient inclus dans la largeur totale */
+  }
+
+  .cards {
+    width: calc(100% - 40px); /* Ajuster la largeur pour mobile */
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px 0px #0000001a;
+    position: relative;
+    margin: 0 auto; /* Centrer les cartes */
+  }
+
+  .cards img {
+    width: 100%;
+    object-fit: cover;
+    height: 179px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .padd-text {
+    padding: 20px; /* Espacement interne */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ajuster l'espacement entre les éléments */
+  }
+
+  .margin-texth3 {
+    margin: 0;
+    font-size: 18px; /* Ajuster la taille de la police */
+  }
+
+  .margin-textp {
+    margin: 5px 0 10px 0; /* Ajuster les marges */
+  }
+
+  .box-text {
+    background-color: #99e2d0;
+    padding: 7px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0f9070;
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Ajuster la position */
+    width: auto;
+  }
+
+  @media (min-width: 768px) {
+    .restaurants {
+      align-items: flex-start; /* Align items to the start for desktop view */
+      padding-left: 0;
+
+      h2 {
+        align-self: center;
+        text-align: center; /* Align h2 to the left for desktop */
+        margin-left: 0; /* Adjust the left margin if needed */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+      }
+    }
+
+    .cards-container {
+      flex-direction: row; /* Disposition en ligne pour les écrans plus grands */
+      flex-wrap: wrap;
+      justify-content: center; /* Centrer les éléments */
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto; /* Centrer le conteneur */
+      padding: 0 20px; /* Ajouter du padding pour desktop */
+    }
+
+    .cards {
+      flex: 0 1 calc(50% - 20px); /* Ajuster la largeur pour les écrans plus grands */
+      margin-bottom: 20px;
+    }
+  }
+}

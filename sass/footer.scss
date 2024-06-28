@@ -1,0 +1,82 @@
+@import "./variables.scss";
+
+footer {
+  background-color: #323232; /* Assurez-vous d'avoir la bonne couleur de fond */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alignement à gauche */
+  padding: 60px; /* Augmenter la taille du footer */
+  width: 100vw; /* Assurez-vous que le footer prend toute la largeur */
+  margin-left: calc(-50vw + 50%); /* Pour s'assurer que le footer prend toute la largeur de l'écran */
+
+  h2 {
+    font-size: 18px;
+    color: white;
+    font-family: "Shrikhand", serif;
+    font-weight: lighter;
+    margin-bottom: 20px;
+  }
+
+  .footer-liens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Ajuster l'espace entre les éléments */
+    width: 100%;
+    color: white;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-between; /* Aligner le logo et les liens de navigation */
+    align-items: center;
+    padding: 60px; /* Augmenter la taille du footer */
+
+    .footer-liens {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row; /* Alignement horizontal pour les écrans plus larges */
+      gap: 20px;
+      justify-content: flex-end; /* Aligner les liens à droite */
+      width: auto; /* Laisser les liens prendre leur propre largeur */
+      margin-left: auto; /* Ajouté pour pousser les liens vers la droite */
+      margin-right: 250px; /* Ajuster cette valeur pour reculer légèrement les liens */
+
+      a {
+        margin: 0 10px;
+      }
+    }
+
+    h2 {
+      order: 1; /* Ajuster l'ordre pour la version desktop */
+      margin: 0; /* Supprimer les marges pour aligner le logo avec les liens */
+      margin-left: 100px; /* Ajouter de l'espace entre h2 et les liens */
+    }
+  }
+}
+
+/* Pour la version mobile */
+@media (max-width: 767px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start; /* Alignement à gauche */
+
+    h2 {
+      order: -1; /* Mettre le logo en haut */
+      margin-bottom: 20px;
+      align-self: flex-start; /* Alignement à gauche */
+    }
+
+    .footer-liens {
+      flex-direction: column; /* Garder l'alignement vertical pour les liens */
+      align-items: flex-start; /* Alignement à gauche */
+      gap: 10px;
+    }
+  }
+}

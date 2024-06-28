@@ -1,0 +1,158 @@
+@import "./variables.scss";
+
+.heart-pos {
+    position: absolute;
+    right: 32px;
+    bottom: 23px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .heart-pos input[type="checkbox"] {
+    display: none;
+  }
+  
+  .heart-full {
+    opacity: 0;
+    transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+  }
+  
+  .heart-pos input[type="checkbox"]:checked ~ .heart-full {
+    opacity: 1;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }
+  
+  .heart-checkbox {
+    display: none;
+  }
+  
+  .heart-empty,
+  .heart-full {
+    position: absolute;
+    left: 135px;
+    bottom: 25px;
+    font-size: 24px;
+    transition: color 1s ease;
+  }
+  
+  .heart-full {
+    opacity: 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }
+  
+  .heart-checkbox:checked + label .heart-empty {
+    opacity: 0;
+  }
+  
+  .heart-checkbox:checked + label .heart-full {
+    opacity: 1;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }
+
+  .heart-palette {
+    position: relative;
+  }
+
+  .heart-palette input[type="checkbox"] {
+    display: none;
+  }
+
+  .heart-palette .heart-empty,
+  .heart-palette .heart-full {
+    font-size: 24px;
+    transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+  }
+
+  .heart-palette .heart-full {
+    opacity: 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }
+
+  .heart-palette input[type="checkbox"]:checked + label .heart-empty {
+    opacity: 0;
+  }
+
+  .heart-palette input[type="checkbox"]:checked + label .heart-full {
+    opacity: 1;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }
+
+  .palette-page .heart-palette,
+  .note_enchante .heart-palette,
+  .a_la_fr .heart-palette,
+  .delice_sens .heart-palette {
+    top: 35px;
+    position: relative;
+    right: 210px;
+  }
+  
+  .palette-page .pos-heart-palette,
+  .note_enchante .pos-heart-palette,
+  .a_la_fr .pos-heart-palette,
+  .delice_sens .pos-heart-palette {
+    bottom: 1px;
+    margin-right: 10px;
+  }
+  
+  .palette-page .heart-checkbox,
+  .note_enchante .heart-checkbox,
+  .a_la_fr .heart-checkbox,
+  .delice_sens .heart-checkbox {
+    display: none;
+  }
+  
+  .palette-page .heart-empty,
+  .palette-page .heart-full,
+  .note_enchante .heart-empty,
+  .note_enchante .heart-full,
+  .a_la_fr .heart-empty,
+  .a_la_fr .heart-full,
+  .delice_sens .heart-empty,
+  .delice_sens .heart-full {
+    font-size: 24px;
+    transition: color 0.5s ease;
+  }
+  
+  .palette-page .heart-full,
+  .note_enchante .heart-full,
+  .a_la_fr .heart-full,
+  .delice_sens .heart-full {
+    opacity: 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }
+  
+  .palette-page .heart-checkbox:checked + label .heart-empty,
+  .note_enchante .heart-checkbox:checked + label .heart-empty,
+  .a_la_fr .heart-checkbox:checked + label .heart-empty,
+  .delice_sens .heart-checkbox:checked + label .heart-empty {
+    opacity: 0;
+  }
+  
+  .palette-page .heart-checkbox:checked + label .heart-full,
+  .note_enchante .heart-checkbox:checked + label .heart-full,
+  .a_la_fr .heart-checkbox:checked + label .heart-full,
+  .delice_sens .heart-checkbox:checked + label .heart-full {
+    opacity: 1;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }

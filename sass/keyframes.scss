@@ -1,0 +1,51 @@
+@import "./variables.scss";
+
+
+
+@keyframes bars {
+  0% {
+    opacity: 1;
+  }
+}
+
+@keyframes bar {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    z-index: -100;
+    display: none;
+    height: 0;
+    width: 0;
+    clip-path: circle(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

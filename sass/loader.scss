@@ -1,0 +1,35 @@
+@import "./variables.scss";
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    animation: fadeIn 0s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+  }
+  
+  .loader-container.hide-loader {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+  }
+  
+  .loader {
+    height: 150px;
+    width: 150px;
+    border: 12px solid $primary-color;
+    border-radius: 50%;
+    border-bottom-color: $secondary-color;
+    border-top-color: #99e2d0;
+    animation: spin 3s forwards;
+  }
+  

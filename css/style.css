@@ -1,0 +1,2156 @@
+@charset "UTF-8";
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  color: white;
+}
+
+input::placeholder {
+  color: grey;
+}
+
+h3.soustitre {
+  border-bottom: 3px solid #99e2d0;
+  width: 3rem;
+}
+
+.check {
+  display: flex;
+  width: 50px;
+  background: #99e2d0;
+  justify-content: center;
+  border-radius: 0px 15px 15px 0px;
+  align-items: center;
+  margin-right: -60px;
+  transition: 0.5s;
+}
+
+.icone-check {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+@keyframes bars {
+  0% {
+    opacity: 1;
+  }
+}
+@keyframes bar {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    z-index: -100;
+    display: none;
+    height: 0;
+    width: 0;
+    clip-path: circle(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+header {
+  width: 100%;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1490196078);
+  display: flex;
+  position: relative;
+}
+
+header h1 {
+  margin: auto;
+}
+
+.img-header {
+  margin: auto;
+  width: 100%;
+  max-width: 150px;
+  padding: 15px;
+  height: auto;
+}
+
+footer {
+  background-color: #323232; /* Assurez-vous d'avoir la bonne couleur de fond */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alignement à gauche */
+  padding: 60px; /* Augmenter la taille du footer */
+  width: 100vw; /* Assurez-vous que le footer prend toute la largeur */
+  margin-left: calc(-50vw + 50%); /* Pour s'assurer que le footer prend toute la largeur de l'écran */
+}
+footer h2 {
+  font-size: 18px;
+  color: white;
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+footer .footer-liens {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Ajuster l'espace entre les éléments */
+  width: 100%;
+  color: white;
+}
+footer .footer-liens a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-between; /* Aligner le logo et les liens de navigation */
+    align-items: center;
+    padding: 60px; /* Augmenter la taille du footer */
+  }
+  footer .footer-liens {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row; /* Alignement horizontal pour les écrans plus larges */
+    gap: 20px;
+    justify-content: flex-end; /* Aligner les liens à droite */
+    width: auto; /* Laisser les liens prendre leur propre largeur */
+    margin-left: auto; /* Ajouté pour pousser les liens vers la droite */
+    margin-right: 250px; /* Ajuster cette valeur pour reculer légèrement les liens */
+  }
+  footer .footer-liens a {
+    margin: 0 10px;
+  }
+  footer h2 {
+    order: 1; /* Ajuster l'ordre pour la version desktop */
+    margin: 0; /* Supprimer les marges pour aligner le logo avec les liens */
+    margin-left: 100px; /* Ajouter de l'espace entre h2 et les liens */
+  }
+}
+/* Pour la version mobile */
+@media (max-width: 767px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start; /* Alignement à gauche */
+  }
+  footer h2 {
+    order: -1; /* Mettre le logo en haut */
+    margin-bottom: 20px;
+    align-self: flex-start; /* Alignement à gauche */
+  }
+  footer .footer-liens {
+    flex-direction: column; /* Garder l'alignement vertical pour les liens */
+    align-items: flex-start; /* Alignement à gauche */
+    gap: 10px;
+  }
+}
+.restaurants {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 0;
+  background-color: #f6f6f6;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+.restaurants .cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les cartes */
+  gap: 20px; /* Espacement entre les cartes */
+  width: 100%;
+  padding: 0; /* Suppression du padding */
+  box-sizing: border-box; /* Assurer que les marges et paddings soient inclus dans la largeur totale */
+}
+.restaurants .cards {
+  width: calc(100% - 40px); /* Ajuster la largeur pour mobile */
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  position: relative;
+  margin: 0 auto; /* Centrer les cartes */
+}
+.restaurants .cards img {
+  width: 100%;
+  object-fit: cover;
+  height: 179px;
+  border-radius: 15px 15px 0 0;
+}
+.restaurants .padd-text {
+  padding: 20px; /* Espacement interne */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ajuster l'espacement entre les éléments */
+}
+.restaurants .margin-texth3 {
+  margin: 0;
+  font-size: 18px; /* Ajuster la taille de la police */
+}
+.restaurants .margin-textp {
+  margin: 5px 0 10px 0; /* Ajuster les marges */
+}
+.restaurants .box-text {
+  background-color: #99e2d0;
+  padding: 7px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0f9070;
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Ajuster la position */
+  width: auto;
+}
+@media (min-width: 768px) {
+  .restaurants .restaurants {
+    align-items: flex-start; /* Align items to the start for desktop view */
+    padding-left: 0;
+  }
+  .restaurants .restaurants h2 {
+    align-self: center;
+    text-align: center; /* Align h2 to the left for desktop */
+    margin-left: 0; /* Adjust the left margin if needed */
+    margin-bottom: 20px; /* Add bottom margin for spacing */
+  }
+  .restaurants .cards-container {
+    flex-direction: row; /* Disposition en ligne pour les écrans plus grands */
+    flex-wrap: wrap;
+    justify-content: center; /* Centrer les éléments */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrer le conteneur */
+    padding: 0 20px; /* Ajouter du padding pour desktop */
+  }
+  .restaurants .cards {
+    flex: 0 1 calc(50% - 20px); /* Ajuster la largeur pour les écrans plus grands */
+    margin-bottom: 20px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.palette-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* S'assurer que le contenu ne dépasse pas */
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.palette-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 70px; /* Bords arrondis pour le menu */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.palette-page .titre-menu {
+  display: flex;
+  justify-content: center; /* Centrer le titre */
+  align-items: center; /* Aligner les éléments verticalement */
+  position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
+  width: 100%;
+  padding: 20px;
+}
+
+.palette-page .heart-palette {
+  position: absolute;
+  right: 10px; /* Ajuster cette valeur pour placer le cœur correctement */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.palette-page .heart-palette input[type=checkbox] {
+  display: none;
+}
+
+.palette-page .heart-palette .heart-empty,
+.palette-page .heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.palette-page .heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.palette-page .heart-palette input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.palette-page .heart-palette input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.palette-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.palette-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white; /* Couleur blanc pour les boutons */
+  border-radius: 15px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
+  overflow: hidden;
+}
+
+.palette-page .text-plats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faire en sorte que cet élément prenne tout l'espace restant */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.palette-page .text-plats > h4,
+.palette-page .text-plats > p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 60px); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
+}
+
+.palette-page .button-plats.active .text-plats > h4,
+.palette-page .button-plats.active .text-plats > p {
+  width: calc(100% - 60px); /* Garder la même largeur pour forcer l'ellipse */
+}
+
+.palette-page .prix {
+  flex-shrink: 0; /* Empêcher cet élément de se rétrécir */
+  margin-left: 10px; /* Ajouter un espace entre le texte et le prix */
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+}
+
+.palette-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.back {
+  position: absolute;
+  margin: 21px;
+  font-size: 21px;
+  color: black;
+}
+
+.image {
+  height: 245px;
+  width: 100%; /* Ajouté pour s'assurer que l'image ne dépasse pas */
+  overflow: hidden; /* Assurez-vous que l'image respecte les bords arrondis */
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assurez-vous que l'image s'adapte bien */
+}
+
+.menu {
+  padding: 30px 10px;
+  background-color: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px;
+}
+
+.titre-menu {
+  display: flex;
+  position: relative;
+}
+
+.titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+}
+
+.plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-plats {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: white;
+  height: 72px;
+  overflow: hidden;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-left: auto; /* Aligner le check à droite */
+  transition: width 0.5s, margin-left 0.5s; /* Transition pour animer la largeur et la marge */
+}
+
+@keyframes checkrotate {
+  0% {
+    transform: rotate(-300deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.button-plats input[type=checkbox]:checked + .check {
+  width: calc(100% - 20px); /* Étendre la largeur à 100% lorsqu'il est coché */
+  margin-left: 0; /* Enlever la marge pour que le check prenne toute la place */
+}
+
+.button-plats:hover i {
+  animation: checkrotate 0.5s ease;
+}
+
+.text-plats {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 100px); /* Ajuster la largeur pour inclure plus de texte */
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.text-plats > h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  white-space: nowrap; /* Texte sur une seule ligne */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-plats > p {
+  margin-top: -9px;
+  white-space: nowrap; /* Texte sur une seule ligne */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+  margin-left: auto; /* Aligner les prix à droite */
+}
+
+.heart-palette {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  top: 50%;
+  right: 10px; /* Ajuste cette valeur si nécessaire */
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pos-heart-palette {
+  position: absolute;
+}
+
+.button-plats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entry:nth-child(1) {
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+}
+
+.entry:nth-child(2) {
+  animation: fadeInUp 0.5s ease 1s forwards;
+}
+
+.entry:nth-child(3) {
+  animation: fadeInUp 0.5s ease 1.5s forwards;
+}
+
+.entry:nth-child(4) {
+  animation: fadeInUp 0.5s ease 1.75s forwards;
+}
+
+.main:nth-child(1) {
+  animation: fadeInUp 0.5s ease 2s forwards;
+}
+
+.main:nth-child(2) {
+  animation: fadeInUp 0.5s ease 2.5s forwards;
+}
+
+.main:nth-child(3) {
+  animation: fadeInUp 0.5s ease 3s forwards;
+}
+
+.dessert:nth-child(1) {
+  animation: fadeInUp 0.5s ease 3.5s forwards;
+}
+
+.dessert:nth-child(2) {
+  animation: fadeInUp 0.5s ease 4s forwards;
+}
+
+.dessert:nth-child(3) {
+  animation: fadeInUp 0.5s ease 4.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 768px) {
+  .palette-page .button-plats {
+    height: 80px; /* Ajuster la hauteur des boutons pour desktop */
+    width: 600px;
+    border-radius: 15px; /* Arrondir les bords */
+    padding: 20px 60px; /* Ajouter du padding pour élargir les boutons */
+  }
+  .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    background: #99e2d0;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: -130px; /* Hide it initially */
+    transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+  }
+  .button-plats:hover .check {
+    margin-right: -62px;
+  }
+  .palette-page .prix {
+    margin-top: 45px;
+    margin-left: auto; /* Aligner les prix à droite */
+    padding-right: 40px; /* Ajouter plus d'espace à droite du prix pour aligner */
+  }
+}
+.palette-page .titre-menu {
+  margin-right: 0px;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center; /* Alignement à gauche */
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Additions for full-width sections */
+@media (max-width: 767px) {
+  .image,
+  .palette-page .menu {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+}
+.palette-page .footer {
+  background-color: #f6f6f6;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 20px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 0; /* Réduire le padding en bas */
+}
+
+.localisation {
+  background-color: rgb(239, 239, 239);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120vw; /* Prendre toute la largeur de l'écran */
+  position: relative;
+  top: -20px; /* Ajuster la position pour coller au header */
+}
+
+.localisation i {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 125px;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.texte-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f6f6f6;
+  padding: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 0; /* Réduire le padding en bas */
+}
+
+.button-intro {
+  border-radius: 28px;
+  color: white;
+  font-size: 16px;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  justify-content: center;
+  display: flex;
+  width: 206px;
+  margin: 20px auto;
+}
+
+.button-intro:hover {
+  transform: scale(1.05);
+  opacity: 0.6;
+  box-shadow: 5px 4px 5px 2px rgba(107, 107, 107, 0.98);
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.a_la_fr-page .titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+  margin-right: 180px;
+}
+
+.a_la_fr-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* S'assurer que le contenu ne dépasse pas */
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.a_la_fr-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 70px; /* Bords arrondis pour le menu */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.a_la_fr-page .titre-menu {
+  display: flex;
+  justify-content: center; /* Centrer le titre */
+  align-items: center; /* Aligner les éléments verticalement */
+  position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
+  width: 100%;
+  padding: 20px;
+}
+
+.a_la_fr-page .heart-palette {
+  position: relative;
+  right: 300px; /* Ajuste cette valeur si nécessaire */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.a_la_fr-page .heart-palette input[type=checkbox] {
+  display: none;
+}
+
+.a_la_fr-page .heart-palette .heart-empty,
+.a_la_fr-page .heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.a_la_fr-page .heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.a_la_fr-page .heart-palette input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.a_la_fr-page .heart-palette input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.a_la_fr-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.a_la_fr-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white; /* Couleur blanc pour les boutons */
+  border-radius: 15px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
+  overflow: hidden;
+  transition: none; /* Pas de transition sur la largeur du bouton */
+}
+
+.a_la_fr-page .text-plats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faire en sorte que cet élément prenne tout l'espace restant */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.a_la_fr-page .text-plats > .a_la_fr_h4,
+.a_la_fr-page .text-plats > .a_la_fr_p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 60px); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
+}
+
+.a_la_fr-page .button-plats.active .text-plats > .a_la_fr_h4,
+.a_la_fr-page .button-plats.active .text-plats > .a_la_fr_p {
+  width: calc(100% - 60px); /* Garder la même largeur pour forcer l'ellipse */
+}
+
+.a_la_fr-page .prix {
+  flex-shrink: 0; /* Empêcher cet élément de se rétrécir */
+  margin-left: 10px; /* Ajouter un espace entre le texte et le prix */
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+}
+
+.a_la_fr-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.back {
+  position: absolute;
+  margin: 21px;
+  font-size: 21px;
+  color: black;
+}
+
+.image {
+  height: 245px;
+  width: 100%; /* Ajouté pour s'assurer que l'image ne dépasse pas */
+  overflow: hidden; /* Assurez-vous que l'image respecte les bords arrondis */
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assurez-vous que l'image s'adapte bien */
+}
+
+.menu {
+  padding: 30px 10px;
+  background-color: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px;
+}
+
+.titre-menu {
+  display: flex;
+  position: relative;
+}
+
+.titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+  margin-right: 130px;
+}
+
+.plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-plats {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: white;
+  height: 72px;
+  overflow: hidden;
+}
+
+.button-plats:hover .a_la_fr_check {
+  margin-right: -25px;
+}
+
+@keyframes checkrotate {
+  0% {
+    transform: rotate(-300deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.button-plats:hover i {
+  animation: checkrotate 0.5s ease;
+}
+
+.text-plats {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 100px); /* Ajuster la largeur pour tenir compte de la case à cocher */
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.text-plats > .a_la_fr_h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.text-plats > .a_la_fr_p {
+  margin-top: -9px;
+}
+
+.heart-palette {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  top: 21px;
+  right: 2px; /* Ajuste cette valeur si nécessaire */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pos-heart-palette {
+  position: absolute;
+}
+
+.button-plats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entry:nth-child(1) {
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+}
+
+.entry:nth-child(2) {
+  animation: fadeInUp 0.5s ease 1s forwards;
+}
+
+.entry:nth-child(3) {
+  animation: fadeInUp 0.5s ease 1.5s forwards;
+}
+
+.entry:nth-child(4) {
+  animation: fadeInUp 0.5s ease 1.75s forwards;
+}
+
+.main:nth-child(1) {
+  animation: fadeInUp 0.5s ease 2s forwards;
+}
+
+.main:nth-child(2) {
+  animation: fadeInUp 0.5s ease 2.5s forwards;
+}
+
+.main:nth-child(3) {
+  animation: fadeInUp 0.5s ease 3s forwards;
+}
+
+.dessert:nth-child(1) {
+  animation: fadeInUp 0.5s ease 3.5s forwards;
+}
+
+.dessert:nth-child(2) {
+  animation: fadeInUp 0.5s ease 4s forwards;
+}
+
+.dessert:nth-child(3) {
+  animation: fadeInUp 0.5s ease 4.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.a_la_fr_check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100px;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: -80px; /* Hide it initially */
+  transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+}
+
+.icone-check {
+  color: white;
+  font-size: 24px;
+}
+
+/* Ajouter un état actif pour maintenir la case cochée après clic */
+.button-plats.active .a_la_fr_check {
+  width: 50px;
+  margin-right: 0;
+}
+
+.button-plats input[type=checkbox] {
+  display: none;
+}
+
+.button-plats input[type=checkbox]:checked + .a_la_fr_check {
+  width: 50px; /* Faire en sorte que la case coche prenne toute la hauteur */
+  height: 100%;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .a_la_fr-page .button-plats {
+    height: 80px; /* Ajuster la hauteur des boutons pour desktop */
+    width: 600px;
+    border-radius: 15px; /* Arrondir les bords */
+    padding: 20px 60px; /* Ajouter du padding pour élargir les boutons */
+  }
+  .button-plats:hover .a_la_fr_check {
+    margin-right: -65px;
+  }
+  .a_la_fr_check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    background: #99e2d0;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: -130px; /* Hide it initially */
+    transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+  }
+  .a_la_fr-page .prix {
+    margin-top: 45px;
+    margin-left: auto; /* Aligner les prix à droite */
+    padding-right: 40px; /* Ajouter plus d'espace à droite du prix pour aligner */
+  }
+}
+.a_la_fr-page .titre-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.a_la_fr-page .heart-palette {
+  top: 35px;
+  position: relative;
+  right: 300px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.delice_sens-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* S'assurer que le contenu ne dépasse pas */
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.delice_sens-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 70px; /* Bords arrondis pour le menu */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delice_sens-page .titre-menu {
+  display: flex;
+  justify-content: center; /* Centrer le titre */
+  align-items: center; /* Aligner les éléments verticalement */
+  position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
+  width: 100%;
+  padding: 20px;
+}
+
+.delice_sens-page .heart-palette {
+  position: absolute;
+  right: 10px; /* Ajuster cette valeur pour placer le cœur correctement */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delice_sens-page .heart-palette input[type=checkbox] {
+  display: none;
+}
+
+.delice_sens-page .heart-palette .heart-empty,
+.delice_sens-page .heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.delice_sens-page .heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.delice_sens-page .heart-palette input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.delice_sens-page .heart-palette input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.delice_sens-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.delice_sens-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white; /* Couleur blanc pour les boutons */
+  border-radius: 15px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
+  overflow: hidden;
+}
+
+.delice_sens-page .text-plats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faire en sorte que cet élément prenne tout l'espace restant */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.delice_sens-page .text-plats > h4,
+.delice_sens-page .text-plats > p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 60px); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
+}
+
+.delice_sens-page .button-plats.active .text-plats > h4,
+.delice_sens-page .button-plats.active .text-plats > p {
+  width: calc(100% - 60px); /* Garder la même largeur pour forcer l'ellipse */
+}
+
+.delice_sens-page .titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+  margin-right: 150px;
+}
+
+.delice_sens-page .prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+}
+
+.delice_sens-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.back {
+  position: absolute;
+  margin: 21px;
+  font-size: 21px;
+  color: black;
+}
+
+.image {
+  height: 245px;
+  width: 100%; /* Ajouté pour s'assurer que l'image ne dépasse pas */
+  overflow: hidden; /* Assurez-vous que l'image respecte les bords arrondis */
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assurez-vous que l'image s'adapte bien */
+}
+
+.menu {
+  padding: 30px 10px;
+  background-color: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px;
+}
+
+.titre-menu {
+  display: flex;
+  position: relative;
+}
+
+.titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+}
+
+.plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-plats {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: white;
+  height: 72px;
+  overflow: hidden;
+}
+
+.button-plats:hover .delice_sens_check {
+  margin-right: -20px;
+}
+
+@keyframes checkrotate {
+  0% {
+    transform: rotate(-300deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.button-plats:hover i {
+  animation: checkrotate 0.5s ease;
+}
+
+.text-plats {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 100px); /* Ajuster la largeur pour tenir compte de la case à cocher */
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.text-plats > h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.text-plats > p {
+  margin-top: -9px;
+}
+
+.prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+}
+
+.heart-palette {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  top: 50%;
+  right: 10px; /* Ajuste cette valeur si nécessaire */
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pos-heart-palette {
+  position: absolute;
+}
+
+.button-plats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entry:nth-child(1) {
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+}
+
+.entry:nth-child(2) {
+  animation: fadeInUp 0.5s ease 1s forwards;
+}
+
+.entry:nth-child(3) {
+  animation: fadeInUp 0.5s ease 1.5s forwards;
+}
+
+.entry:nth-child(4) {
+  animation: fadeInUp 0.5s ease 1.75s forwards;
+}
+
+.main:nth-child(1) {
+  animation: fadeInUp 0.5s ease 2s forwards;
+}
+
+.main:nth-child(2) {
+  animation: fadeInUp 0.5s ease 2.5s forwards;
+}
+
+.main:nth-child(3) {
+  animation: fadeInUp 0.5s ease 3s forwards;
+}
+
+.dessert:nth-child(1) {
+  animation: fadeInUp 0.5s ease 3.5s forwards;
+}
+
+.dessert:nth-child(2) {
+  animation: fadeInUp 0.5s ease 4s forwards;
+}
+
+.dessert:nth-child(3) {
+  animation: fadeInUp 0.5s ease 4.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.delice_sens_check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100px;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: -80px; /* Hide it initially */
+  transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+}
+
+.icone-check {
+  color: white;
+  font-size: 24px;
+}
+
+/* Ajouter un état actif pour maintenir la case cochée après clic */
+.button-plats.active .delice_sens_check {
+  width: 50px;
+  margin-right: 0;
+}
+
+.button-plats input[type=checkbox] {
+  display: none;
+}
+
+.button-plats input[type=checkbox]:checked + .delice_sens_check {
+  width: 50px; /* Faire en sorte que la case coche prenne toute la hauteur */
+  height: 100%;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .delice_sens-page .button-plats {
+    height: 80px; /* Ajuster la hauteur des boutons pour desktop */
+    width: 600px;
+    border-radius: 15px; /* Arrondir les bords */
+    padding: 20px 60px; /* Ajouter du padding pour élargir les boutons */
+  }
+  .delice_sens_check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    background: #99e2d0;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: -130px; /* Hide it initially */
+    transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+  }
+  .button-plats:hover .delice_sens_check {
+    margin-right: -60px;
+  }
+  .delice_sens-page .prix {
+    margin-top: 45px;
+    margin-left: auto; /* Aligner les prix à droite */
+    padding-right: 40px; /* Ajouter plus d'espace à droite du prix pour aligner */
+  }
+}
+.delice_sens-page .titre-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.delice_sens-page .heart-palette {
+  position: relative;
+  right: 270px;
+  top: 35px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.note_enchantee-page main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* S'assurer que le contenu ne dépasse pas */
+  overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+
+.note_enchantee-page .menu {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 70px; /* Bords arrondis pour le menu */
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note_enchantee-page .titre-menu {
+  display: flex;
+  justify-content: flex-start; /* Aligner le titre à gauche */
+  align-items: center; /* Aligner les éléments verticalement */
+  position: relative; /* Ajouté pour permettre le positionnement absolu du cœur */
+  width: 100%;
+  padding: 20px;
+}
+
+.note_enchantee-page .heart-palette input[type=checkbox] {
+  display: none;
+}
+
+.note_enchantee-page .heart-palette .heart-empty,
+.note_enchantee-page .heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.note_enchantee-page .heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.note_enchantee-page .heart-palette input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.note_enchantee-page .heart-palette input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.note_enchantee-page .plats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.note_enchantee-page .button-plats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white; /* Couleur blanc pour les boutons */
+  border-radius: 15px; /* Ajouter les bords arrondis manquants */
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1019607843);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Ajouté pour gérer le positionnement de l'élément check */
+}
+
+.note_enchantee-page .text-plats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faire en sorte que cet élément prenne tout l'espace restant */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.note_enchantee-page .text-plats > h4,
+.note_enchantee-page .text-plats > p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 60px); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
+}
+
+.note_enchantee-page .button-plats.active .text-plats > h4,
+.note_enchantee-page .button-plats.active .text-plats > p {
+  width: calc(100% - 60px); /* Garder la même largeur pour forcer l'ellipse */
+}
+
+.note_enchantee-page .prix {
+  flex-shrink: 0; /* Empêcher cet élément de se rétrécir */
+  margin-left: 10px; /* Ajouter un espace entre le texte et le prix */
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+  white-space: nowrap;
+}
+
+.note_enchantee-page .button-intro {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.back {
+  position: absolute;
+  margin: 21px;
+  font-size: 21px;
+  color: black;
+}
+
+.image {
+  height: 245px;
+  width: 100%; /* Ajouté pour s'assurer que l'image ne dépasse pas */
+  overflow: hidden; /* Assurez-vous que l'image respecte les bords arrondis */
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assurez-vous que l'image s'adapte bien */
+}
+
+.menu {
+  padding: 30px 10px;
+  background-color: #f6f6f6; /* Couleur gris pour le menu */
+  border-radius: 30px 30px 0px 0px;
+}
+
+.titre-menu {
+  display: flex;
+  position: relative;
+}
+
+.titre-menu h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: lighter;
+  margin-right: 100px;
+}
+
+.plats {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-plats {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1019607843);
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: white;
+  height: 72px;
+  overflow: hidden;
+}
+
+.button-plats:hover .check {
+  margin-right: -20px;
+}
+
+@keyframes checkrotate {
+  0% {
+    transform: rotate(-300deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.button-plats:hover i {
+  animation: checkrotate 0.5s ease;
+}
+
+.text-plats {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.text-plats > h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.text-plats > p {
+  margin-top: -9px;
+}
+
+.prix {
+  display: flex;
+  align-items: flex-end;
+  font-weight: bolder;
+  padding: 0px 20px 12px 0px;
+}
+
+.note_enchantee-page .heart-palette {
+  position: relative;
+  top: 35px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.heart-palette {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  top: 50%;
+  right: 205px; /* Ajuste cette valeur si nécessaire */
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pos-heart-palette {
+  position: absolute;
+}
+
+.button-plats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entry:nth-child(1) {
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+}
+
+.entry:nth-child(2) {
+  animation: fadeInUp 0.5s ease 1s forwards;
+}
+
+.entry:nth-child(3) {
+  animation: fadeInUp 0.5s ease 1.5s forwards;
+}
+
+.entry:nth-child(4) {
+  animation: fadeInUp 0.5s ease 1.75s forwards;
+}
+
+.main:nth-child(1) {
+  animation: fadeInUp 0.5s ease 2s forwards;
+}
+
+.main:nth-child(2) {
+  animation: fadeInUp 0.5s ease 2.5s forwards;
+}
+
+.main:nth-child(3) {
+  animation: fadeInUp 0.5s ease 3s forwards;
+}
+
+.dessert:nth-child(1) {
+  animation: fadeInUp 0.5s ease 3.5s forwards;
+}
+
+.dessert:nth-child(2) {
+  animation: fadeInUp 0.5s ease 4s forwards;
+}
+
+.dessert:nth-child(3) {
+  animation: fadeInUp 0.5s ease 4.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100px;
+  background: #99e2d0;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: -80px; /* Hide it initially */
+  transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+}
+
+.icone-check {
+  color: white;
+  font-size: 24px;
+}
+
+/* Ajouter un état actif pour maintenir la case cochée après clic */
+.button-plats.active .check {
+  width: 50px;
+  margin-right: 0;
+}
+
+.button-plats input[type=checkbox] {
+  display: none;
+}
+
+.button-plats input[type=checkbox]:checked + .check {
+  width: calc(100% - 20px); /* Faire en sorte que la case coche prenne toute la hauteur */
+  height: 100%;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .note_enchantee-page .heart-palette {
+    position: absolute;
+    right: 480px;
+    top: 93px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .note_enchantee-page .button-plats {
+    height: 80px; /* Ajuster la hauteur des boutons pour desktop */
+    width: 600px;
+    border-radius: 15px; /* Arrondir les bords */
+    padding: 20px 60px; /* Ajouter du padding pour élargir les boutons */
+  }
+  .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    background: #99e2d0;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: -130px; /* Hide it initially */
+    transition: margin-right 0.5s, width 0.5s; /* Ajouté la transition pour le width */
+  }
+  .button-plats:hover .check {
+    margin-right: -62px;
+  }
+  .note_enchantee-page .prix {
+    margin-top: 45px;
+    margin-left: auto; /* Aligner les prix à droite */
+    padding-right: 40px; /* Ajouter plus d'espace à droite du prix pour aligner */
+  }
+}
+.note_enchantee-page .titre-menu {
+  margin-right: 0px;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center; /* Alignement à gauche */
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.heart-pos {
+  position: absolute;
+  right: 32px;
+  bottom: 23px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.heart-pos input[type=checkbox] {
+  display: none;
+}
+
+.heart-full {
+  opacity: 0;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.heart-pos input[type=checkbox]:checked ~ .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-checkbox {
+  display: none;
+}
+
+.heart-empty,
+.heart-full {
+  position: absolute;
+  left: 135px;
+  bottom: 25px;
+  font-size: 24px;
+  transition: color 1s ease;
+}
+
+.heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-checkbox:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.heart-checkbox:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-palette {
+  position: relative;
+}
+
+.heart-palette input[type=checkbox] {
+  display: none;
+}
+
+.heart-palette .heart-empty,
+.heart-palette .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+
+.heart-palette .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.heart-palette input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.heart-palette input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.palette-page .heart-palette,
+.note_enchante .heart-palette,
+.a_la_fr .heart-palette,
+.delice_sens .heart-palette {
+  top: 35px;
+  position: relative;
+  right: 210px;
+}
+
+.palette-page .pos-heart-palette,
+.note_enchante .pos-heart-palette,
+.a_la_fr .pos-heart-palette,
+.delice_sens .pos-heart-palette {
+  bottom: 1px;
+  margin-right: 10px;
+}
+
+.palette-page .heart-checkbox,
+.note_enchante .heart-checkbox,
+.a_la_fr .heart-checkbox,
+.delice_sens .heart-checkbox {
+  display: none;
+}
+
+.palette-page .heart-empty,
+.palette-page .heart-full,
+.note_enchante .heart-empty,
+.note_enchante .heart-full,
+.a_la_fr .heart-empty,
+.a_la_fr .heart-full,
+.delice_sens .heart-empty,
+.delice_sens .heart-full {
+  font-size: 24px;
+  transition: color 0.5s ease;
+}
+
+.palette-page .heart-full,
+.note_enchante .heart-full,
+.a_la_fr .heart-full,
+.delice_sens .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.palette-page .heart-checkbox:checked + label .heart-empty,
+.note_enchante .heart-checkbox:checked + label .heart-empty,
+.a_la_fr .heart-checkbox:checked + label .heart-empty,
+.delice_sens .heart-checkbox:checked + label .heart-empty {
+  opacity: 0;
+}
+
+.palette-page .heart-checkbox:checked + label .heart-full,
+.note_enchante .heart-checkbox:checked + label .heart-full,
+.a_la_fr .heart-checkbox:checked + label .heart-full,
+.delice_sens .heart-checkbox:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  animation: fadeIn 0s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.loader-container.hide-loader {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.loader {
+  height: 150px;
+  width: 150px;
+  border: 12px solid #9356dc;
+  border-radius: 50%;
+  border-bottom-color: #ff79da;
+  border-top-color: #99e2d0;
+  animation: spin 3s forwards;
+}
+
+/***** nav.scss *****/
+nav {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav h2 {
+  margin-bottom: 20px;
+  text-align: left; /* Alignement à gauche */
+  align-self: flex-start; /* Place le titre au début */
+  margin-left: calc(50% - 175px); /* Ajuster cette valeur pour aligner le titre avec le premier bouton */
+}
+nav .flitres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  nav .flitres {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+nav button {
+  width: 100%;
+  max-width: 350px; /* Set max-width */
+  border-radius: 20px;
+  height: 73px;
+  border: none;
+  background-color: #f6f6f6;
+  margin: 15px 0; /* Ajustement de la marge */
+  cursor: pointer;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1490196078);
+}
+nav button i {
+  margin: auto;
+}
+nav .flitres button i.fa-store {
+  color: #9356dc;
+}
+nav .text-button {
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+nav .numero {
+  background: #9356dc;
+  color: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: -18px;
+  margin-bottom: -18px;
+  align-items: center;
+}
+
+/* Media Queries pour les écrans plus larges */
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alignement à gauche */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrer horizontalement */
+  }
+  nav h2 {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: left; /* Alignement à gauche */
+    align-self: flex-start; /* Pour aligner à gauche */
+  }
+  .flitres {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Alignement à gauche */
+    gap: 20px;
+    width: 100%;
+  }
+  .flitres button:first-child {
+    margin-left: 0; /* Aligner le premier bouton avec le titre */
+  }
+}
+.index-page .heart-index {
+  position: absolute;
+  right: 200px;
+  bottom: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.index-page .heart-index input[type=checkbox] {
+  display: none;
+}
+.index-page .heart-index .heart-empty,
+.index-page .heart-index .heart-full {
+  font-size: 24px;
+  transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+}
+.index-page .heart-index .heart-full {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background-clip: text;
+}
+.index-page .heart-index input[type=checkbox]:checked + label .heart-empty {
+  opacity: 0;
+}
+.index-page .heart-index input[type=checkbox]:checked + label .heart-full {
+  opacity: 1;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.index-page .intro {
+  background-color: #f6f6f6;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* Make the section span full width */
+  padding: 20px;
+}
+.index-page main {
+  overflow: hidden;
+  padding: 0 20px; /* Ajoutez cette ligne pour le padding en mobile */
+}
+@media (min-width: 768px) {
+  .index-page .heart-index {
+    right: 190px; /* Adjust position for desktop */
+    bottom: 10px; /* Adjust position for desktop */
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

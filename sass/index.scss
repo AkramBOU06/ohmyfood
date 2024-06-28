@@ -1,0 +1,59 @@
+@import "./variables.scss";
+
+.index-page {
+  .heart-index {
+    position: absolute;
+    right: 200px;
+    bottom: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .heart-index input[type="checkbox"] {
+    display: none;
+  }
+
+  .heart-index .heart-empty,
+  .heart-index .heart-full {
+    font-size: 24px;
+    transition: opacity 1s ease, color 1s ease, -webkit-background-clip 1s ease;
+  }
+
+  .heart-index .heart-full {
+    opacity: 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+    background-clip: text;
+  }
+
+  .heart-index input[type="checkbox"]:checked + label .heart-empty {
+    opacity: 0;
+  }
+
+  .heart-index input[type="checkbox"]:checked + label .heart-full {
+    opacity: 1;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .intro {
+    background-color: $bg-color;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); /* Make the section span full width */
+    padding: 20px;
+  }
+
+  main {
+    overflow: hidden;
+    padding: 0 20px; /* Ajoutez cette ligne pour le padding en mobile */
+  }
+
+  @media (min-width: 768px) {
+    .heart-index {
+      right: 190px; /* Adjust position for desktop */
+      bottom: 10px; /* Adjust position for desktop */
+    }
+  }
+}
