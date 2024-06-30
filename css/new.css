@@ -1,0 +1,84 @@
+@media (max-width: 768px) {
+  /* Changement réalisé pour l'ellipsis  */
+  .note_enchantee-page .text-plats > h4,
+  .note_enchantee-page .text-plats > p {
+    width: unset !important;
+  }
+  .button-plats:hover .text-plats h4,
+  .button-plats:hover .text-plats > p {
+    width: unset;
+  }
+  .note_enchantee-page .button-plats {
+    width: 370px !important;
+    padding-left: 5px !important;
+  }
+  .note_enchantee-page .prix {
+    padding: 0px 30px 12px 0px;
+  }
+  .button-plats:hover .prix {
+    padding: 0px 15px 12px 0px !important;
+  }
+
+  /* Page 2 */
+  .palette-page .text-plats > h4,
+  .palette-page .text-plats > p {
+    width: unset !important;
+  }
+  .palette-page .button-plats:hover .text-plats h4,
+  .palette-page .button-plats:hover .text-plats > p {
+    width: unset;
+  }
+
+  .palette-page .button-plats {
+    width: 370px !important;
+    padding-left: 5px !important;
+  }
+  .palette-page .prix {
+    padding: 0px 30px 12px 0px;
+  }
+  .palette-page .button-plats:hover .prix {
+    padding: 0px 15px 12px 0px !important;
+  }
+
+  /* Page 3  */
+  .delice_sens-page .text-plats > h4,
+  .delice_sens-page .text-plats > p {
+    width: unset !important;
+  }
+  .delice_sens-page .button-plats:hover .text-plats h4,
+  .delice_sens-page .button-plats:hover .text-plats > p {
+    width: unset;
+  }
+
+  .delice_sens-page .button-plats {
+    width: 370px !important;
+    padding-left: 5px !important;
+  }
+  .delice_sens-page .prix {
+    padding: 0px 30px 12px 0px;
+  }
+  .delice_sens-page .button-plats:hover .prix {
+    padding: 0px 15px 12px 0px !important;
+  }
+
+  /* Page 4  */
+  .a_la_fr-page .text-plats > h4,
+  .a_la_fr-page .text-plats > p {
+    width: unset !important;
+  }
+  .a_la_fr-page .button-plats:hover .text-plats h4,
+  .a_la_fr-page .button-plats:hover .text-plats > p {
+    width: unset;
+  }
+
+  .a_la_fr-page .button-plats {
+    width: 370px !important;
+    padding-left: 5px !important;
+  }
+  .a_la_fr-page .prix {
+    padding: 0px 30px 12px 0px;
+  }
+  .a_la_fr-page .button-plats:hover .prix {
+    padding: 0px 15px 12px 0px !important;
+  }
+}
