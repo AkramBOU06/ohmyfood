@@ -60,15 +60,27 @@ body {
   opacity: 0;
   color: transparent;
   -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+  background: linear-gradient(
+    193.33deg,
+    $primary-color -11.44%,
+    $secondary-color 123.93%
+  );
   background-clip: text;
 }
 
-.palette-page .heart-palette input[type="checkbox"]:checked + label .heart-empty {
+.palette-page
+  .heart-palette
+  input[type="checkbox"]:checked
+  + label
+  .heart-empty {
   opacity: 0;
 }
 
-.palette-page .heart-palette input[type="checkbox"]:checked + label .heart-full {
+.palette-page
+  .heart-palette
+  input[type="checkbox"]:checked
+  + label
+  .heart-full {
   opacity: 1;
   color: transparent;
   -webkit-background-clip: text;
@@ -110,7 +122,9 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: calc(100% - 60px); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
+  width: calc(
+    100% - 60px
+  ); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
 }
 
 .palette-page .button-plats.active .text-plats > h4,
@@ -366,8 +380,6 @@ body {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
   }
-
- 
 }
 
 .palette-page .footer {

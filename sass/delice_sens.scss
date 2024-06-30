@@ -60,19 +60,35 @@ body {
   opacity: 0;
   color: transparent;
   -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+  background: linear-gradient(
+    193.33deg,
+    $primary-color -11.44%,
+    $secondary-color 123.93%
+  );
   background-clip: text;
 }
 
-.delice_sens-page .heart-palette input[type="checkbox"]:checked + label .heart-empty {
+.delice_sens-page
+  .heart-palette
+  input[type="checkbox"]:checked
+  + label
+  .heart-empty {
   opacity: 0;
 }
 
-.delice_sens-page .heart-palette input[type="checkbox"]:checked + label .heart-full {
+.delice_sens-page
+  .heart-palette
+  input[type="checkbox"]:checked
+  + label
+  .heart-full {
   opacity: 1;
   color: transparent;
   -webkit-background-clip: text;
-  background: linear-gradient(193.33deg, $primary-color -11.44%, $secondary-color 123.93%);
+  background: linear-gradient(
+    193.33deg,
+    $primary-color -11.44%,
+    $secondary-color 123.93%
+  );
   background-clip: text;
 }
 
@@ -111,7 +127,9 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: calc(100% - 60px); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
+  width: calc(
+    100% - 60px
+  ); /* Ajuster pour tenir compte de l'espace pris par l'icône de validation */
 }
 
 .delice_sens-page .button-plats.active .text-plats > h4,
@@ -210,7 +228,9 @@ body {
 .text-plats {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 100px); /* Ajuster la largeur pour tenir compte de la case à cocher */
+  width: calc(
+    100% - 100px
+  ); /* Ajuster la largeur pour tenir compte de la case à cocher */
   justify-content: center;
   padding-left: 10px;
 }
